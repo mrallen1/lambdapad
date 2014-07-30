@@ -1,11 +1,12 @@
 PROJECT = lpad
 
-DEPS = jiffy erlydtl getopt erlmarkdown
+DEPS = jiffy erlydtl getopt erlmarkdown ej
 
 dep_jiffy = https://github.com/davisp/jiffy.git 0.9.0
 dep_erlydtl = https://github.com/erlydtl/erlydtl.git 0.8.0
 dep_getopt = https://github.com/jcomellas/getopt.git
 dep_erlmarkdown = https://github.com/erlware/erlmarkdown.git
+dep_ej = https://github.com/seth/ej
 
 ERLC_OPTS = -Ddevmode
 
