@@ -111,10 +111,14 @@ handle_consult_eterm({error, Err}, Source) ->
     error({eterm_source, Source, Err}).
 
 markdown(Source) ->
-    io:format("*** load markdown: ~p~n", [Source]).
+    AbsSource = abs_file(Source),
+    {HeaderMap, HTMLBody} = lpad_markdown:load(AbsSource),
+    #{headers => HeaderMap, body => HTMLBody}.
 
 json(Source) ->
-    io:format("*** load json: ~p~n", [Source]).
+    AbsSource = abs_file(Source),
+    {Headers, Body} = lpad_json:load(AbsSource),
+    #{headers => Headers, body => Body}.
 
 abs_file(Rel) ->
     filename:join(lpad_session:root(), Rel).
